@@ -78,7 +78,7 @@ export const NAV_LINKS = [
     href: '/docs', 
     label: 'Resources',
     children: [
-        { href: '/docs/getting-started', label: 'Docs', description: 'Start building today', icon: 'Book' },
+        { href: '/docs/getting-started', label: 'Docs', description: 'Start building today', icon: 'Book', localize: false },
         { href: '/blog', label: 'Blog', description: 'Latest updates & guides', icon: 'Newspaper' },
         { href: '/changelog', label: 'Changelog', description: 'New features & fixes', icon: 'FileClock' },
     ]
