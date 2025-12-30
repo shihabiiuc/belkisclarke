@@ -106,8 +106,8 @@ export default function Search({ placeholder = "Search...", devModalLabels, lang
         className="flex items-center gap-2 px-3 py-1.5 text-sm text-foreground/60 hover:text-foreground bg-foreground/5 hover:bg-foreground/10 border border-foreground/10 rounded-full transition-all hover:scale-105"
       >
         <SearchIcon size={14} />
-        <span className="hidden sm:inline">{placeholder}</span>
-        <div className="hidden sm:flex items-center gap-0.5 px-1.5 py-0.5 bg-background border border-foreground/10 rounded-full text-[10px] font-mono shadow-sm">
+        <span className="hidden lg:inline">{placeholder}</span>
+        <div className="hidden lg:flex items-center gap-0.5 px-1.5 py-0.5 bg-background border border-foreground/10 rounded-full text-[10px] font-mono shadow-sm">
           <span className="text-[10px] text-foreground/90">⌘K</span>
         </div>
       </button>

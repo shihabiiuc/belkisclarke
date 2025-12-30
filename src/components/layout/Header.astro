@@ -78,12 +78,14 @@ const primaryHref = ACTION_LINKS.primary.href.startsWith('/docs')
           />
         )
       )}
-      <span>{t['brand.name'] || siteConfig.name}</span>
+      <span class="md:hidden lg:inline">{t['brand.name'] || siteConfig.name}</span>
     </a>
-    <DesktopNav client:load links={links} currentPath={Astro.url.pathname} />
+    <div class="flex-1 flex justify-center mx-4 lg:mx-8">
+      <DesktopNav client:load links={links} currentPath={Astro.url.pathname} />
+    </div>
 
     {/* Mobile/Flyout Menu */}
-    <div class="flex items-center gap-4">
+    <div class="flex items-center gap-4 flex-shrink-0">
       {siteConfig.search.enabled && <Search 
         client:load 
         placeholder={t['search.placeholder']} 
@@ -101,14 +103,14 @@ const primaryHref = ACTION_LINKS.primary.href.startsWith('/docs')
         href={ACTION_LINKS.social.github}
         target="_blank" 
         rel="noopener noreferrer"
-        class="text-foreground hover:text-foreground/70 dark:text-white dark:hover:text-blue-300 transition-colors hidden sm:block"
+        class="text-foreground hover:text-foreground/70 dark:text-white dark:hover:text-blue-300 transition-colors hidden md:block"
         aria-label="GitHub"
       >
         <Github className="w-5 h-5" />
       </a>
       <a 
         href={primaryHref}
-        class="hidden sm:block px-4 py-2 text-sm font-medium bg-primary text-white rounded-full hover:bg-primary/90 transition-all"
+        class="hidden md:block px-4 py-2 text-sm font-medium bg-primary text-white rounded-full hover:bg-primary/90 transition-all"
       >
         {t['hero.getStarted'] || ACTION_LINKS.primary.label}
       </a>
