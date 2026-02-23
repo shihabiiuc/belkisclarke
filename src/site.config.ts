@@ -17,8 +17,8 @@ export const siteConfig = {
   announcement: {
     enabled: true,
     id: "launch_v1", // Change this ID to reshow the banner
-    link: "/changelog",
-    localizeLink: true, // Set to true to apply i18n routing to the link, false for external/absolute links
+    link: "https://contactbelkis.as.me/TalkwithB",
+    //localizeLink: true, // Set to true to apply i18n routing to the link, false for external/absolute links
   },
   blog: {
     postsPerPage: 6,

@@ -14,7 +14,7 @@ import DevSearchModal from "./DevSearchModal";
 const POPULAR_LINKS = [
   {
     label: "Human Currency",
-    href: "/framework/",
+    href: "/en/framework/",
     icon: Book,
     localize: false,
   },
