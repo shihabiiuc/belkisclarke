@@ -34,7 +34,6 @@ import CTA from "~/components/sections/CTA.astro";
 import FAQ from "~/components/sections/FAQ.astro";
 import LogoCloud from "~/components/sections/LogoCloud.astro";
 import TechStack from "~/components/sections/TechStack.astro";
-import OpenSourceNotification from "~/components/common/OpenSourceNotification.astro";
 
 export async function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({ params: { lang } }));
@@ -116,8 +115,14 @@ const logos = [
     title={t["hero.title"]}
     highlight={t["hero.highlight"]}
     description={t["hero.subtitle"]}
-    primaryCta={{ text: t["hero.getStarted"], href: `/${lang}/pricing` }}
-    secondaryCta={{ text: t["hero.learnMore"], href: `/${lang}/features` }}
+    primaryCta={{
+      text: t["hero.getStarted"],
+      href: "https://belkisclarke.typeform.com/human-currency",
+    }}
+    secondaryCta={{
+      text: t["hero.learnMore"],
+      href: "https://contactbelkis.as.me/TalkwithB",
+    }}
   />
 
   <LogoCloud title={t["logo.title"]} logos={logos} />
@@ -345,10 +350,14 @@ const logos = [
   <CTA
     title={t["cta.readyToLaunch"]}
     description={t["cta.description"]}
-    primaryBtn={{ text: t["cta.primary"], href: `/${lang}/pricing` }}
-    secondaryBtn={{ text: t["cta.secondary"], href: `/${lang}/contact` }}
+    primaryBtn={{
+      text: t["cta.primary"],
+      href: "https://contactbelkis.as.me/TalkwithB", // booking page
+    }}
+    secondaryBtn={{
+      text: t["cta.secondary"],
+      href: "https://belkisclarke.typeform.com/human-currency", // assessment
+    }}
     disclaimer={t["cta.disclaimer"]}
   />
-
-  <OpenSourceNotification lang={lang} />
 </Layout>

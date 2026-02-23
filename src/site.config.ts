@@ -71,16 +71,16 @@ export const NAV_LINKS = [
     label: "Product",
     children: [
       {
-        href: "/features",
+        href: "/framework",
         label: "Features",
         description: "What makes us different",
-        icon: "Zap",
+        icon: "BookOpenText",
       },
       {
-        href: "/pricing",
+        href: "/work-with-me",
         label: "Pricing",
         description: "Plans for every team",
-        icon: "CreditCard",
+        icon: "Mic",
       },
     ],
   },
@@ -89,23 +89,10 @@ export const NAV_LINKS = [
     label: "Resources",
     children: [
       {
-        href: "/docs/getting-started",
-        label: "Docs",
-        description: "Start building today",
-        icon: "Book",
-        localize: false,
-      },
-      {
         href: "/blog",
         label: "Blog",
         description: "Latest updates & guides",
         icon: "Newspaper",
-      },
-      {
-        href: "/changelog",
-        label: "Changelog",
-        description: "New features & fixes",
-        icon: "FileClock",
       },
     ],
   },
@@ -114,16 +101,10 @@ export const NAV_LINKS = [
     label: "Work",
     children: [
       {
-        href: "/portfolio",
-        label: "All Projects",
-        description: "Our complete portfolio",
-        icon: "LayoutGrid",
-      },
-      {
-        href: "/design",
-        label: "Design System",
-        description: "Style guide & tokens",
-        icon: "Palette",
+        href: "/media",
+        label: "Media",
+        description: "What you spend when you spend yourself",
+        icon: "Podcast",
       },
     ],
   },
@@ -148,7 +129,10 @@ export const NAV_LINKS = [
 ];
 
 export const ACTION_LINKS = {
-  primary: { label: "Get Started", href: "/docs/getting-started" },
+  primary: {
+    label: "Get Started",
+    href: "https://contactbelkis.as.me/TalkwithB",
+  },
   social: {
     twitter: "https://twitter.com/gladtek",
     linkedin: "https://www.linkedin.com/in/belkis-clarke-mitcham/",
@@ -162,10 +146,10 @@ export const FOOTER_LINKS = {
   product: {
     title: "Product",
     links: [
-      { href: "/features", label: "Features" },
+      { href: "/framework", label: "Features" },
       { href: "/about", label: "About" },
-      { href: "/pricing", label: "Pricing" },
-      { href: "/changelog", label: "Changelog" },
+      { href: "/work-with-me", label: "Pricing" },
+      // { href: "/changelog", label: "Changelog" },
     ],
   },
   legal: {

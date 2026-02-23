@@ -1,7 +1,7 @@
 ---
 interface Props {
   title: string;
-  features: string[];
+  description: string;
   terminal: {
     comment: string;
     command: {
@@ -13,33 +13,46 @@ interface Props {
   };
 }
 
-const { title, features, terminal } = Astro.props;
+const { title, description, terminal } = Astro.props;
 ---
-<div class="mt-24 p-12 rounded-[40px] bg-linear-to-br from-primary/10 via-background to-background border border-primary/20">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div>
-            <h2 class="text-3xl font-bold mb-6">{title}</h2>
-            <ul class="space-y-4">
-                {features.map(item => (
-                    <li class="flex items-center gap-3 text-foreground/70">
-                        <div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
-                        {item}
-                    </li>
-                ))}
-            </ul>
-        </div>
-        <div class="bg-black/40 rounded-2xl border border-white/5 p-6 font-mono text-sm overflow-hidden">
-            <div class="flex gap-2 mb-4">
-                <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
-                <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
-            </div>
-            <div class="text-blue-400"># {terminal.comment}</div>
-            <div class="text-purple-400">{terminal.command.tool}</div> <span class="text-foreground">{terminal.command.args}</span>
-            {terminal.successSteps.map(step => (
-                 <div class="text-emerald-400">✓ {step}</div>
-            ))}
-            <div class="mt-4 text-primary animate-pulse">{terminal.readyMessage} _</div>
-        </div>
+
+<div
+  class="mt-24 p-12 rounded-[40px] bg-linear-to-br from-primary/10 via-background to-background border border-primary/20"
+>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <h2 class="text-3xl font-bold mb-6">{title}</h2>
+      <p class="text-foreground/70 leading-relaxed max-w-xl">
+        {description}
+      </p>
     </div>
+    <div
+      class="bg-gradient-to-br from-primary/20 to-black/40 backdrop-blur-xl rounded-2xl border border-white/5 p-8 overflow-hidden flex items-center"
+    >
+      <p class="text-black/80 leading-relaxed text-base">
+        High-achieving women don’t need more productivity hacks. They need space
+        to think, breathe, and lead with integrity. This is where clarity
+        replaces chaos and sustainable success begins.
+        <a
+          href="https://contactbelkis.as.me/TalkwithB"
+          class="inline-flex items-center gap-1 group text-primary font-semibold hover:underline"
+        >
+          Secure your date now
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
+          </svg>
+        </a>
+      </p>
+    </div>
+  </div>
 </div>

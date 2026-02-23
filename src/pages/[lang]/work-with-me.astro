@@ -1,0 +1,106 @@
+---
+import CTA from "~/components/sections/CTA.astro";
+import FAQ from "~/components/sections/FAQ.astro";
+import FeaturesList from "~/components/sections/FeaturesList.astro";
+import FeatureItem from "~/components/ui/FeatureItem.astro";
+
+import ContentSection from "~/components/sections/ContentSection.astro";
+import Button from "~/components/ui/Button.astro";
+
+import Layout from "~/layouts/Layout.astro";
+import PageHeader from "~/components/layout/PageHeader.astro";
+import Schema from "~/components/layout/Schema.astro";
+
+import { HeartPulse, Sunrise, Plane } from "lucide-react";
+import { ui, languages, defaultLang } from "~/i18n/ui";
+import { useTranslations } from "~/i18n/utils";
+
+export async function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const t = useTranslations(lang);
+
+const items = [
+  {
+    question: "How do I know if coaching is right for me?",
+    answer:
+      "If you’re feeling stuck, misaligned, or ready for deeper growth, the Clarity Session is the best first step.",
+  },
+  {
+    question: "Do you work only with entrepreneurs?",
+    answer:
+      "No. I work with high-achieving women in leadership, corporate roles, and business ownership.",
+  },
+  {
+    question: "Is this therapy?",
+    answer:
+      "No. Coaching focuses on forward movement, identity shifts, and strategic alignment.",
+  },
+  {
+    question: "How long is the coaching engagement?",
+    answer:
+      "1:1 coaching is customized based on your goals and readiness for transformation.",
+  },
+];
+---
+
+<Layout
+  title="Work with Me - 1-on-1 coaching sessions"
+  description="1-on-1 coaching sessions."
+>
+  <PageHeader title={t["pricing.title"]} description={t["pricing.subtitle"]} />
+  <ContentSection
+    title="1:1 Coaching"
+    image="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+  >
+    <p>
+      Private Coaching Experience - This is deep, personal work — designed for
+      women who are ready to stop performing and start living. Our work together
+      moves through three transformational phases.
+      <strong
+        >This is not surface-level coaching. It’s identity-level transformation.</strong
+      >
+    </p>
+    <a href="https://contactbelkis.as.me/TalkwithB" target="_blank">
+      <Button class="cursor-pointer">Book a Session</Button>
+    </a>
+  </ContentSection>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <FeaturesList>
+      <FeatureItem
+        title="Heal"
+        description="We identify hidden patterns, past experiences, and emotional weight that still shape your decisions."
+      >
+        <HeartPulse slot="icon" className="w-6 h-6" />
+      </FeatureItem>
+      <FeatureItem
+        title="Rise"
+        description="You develop emotional resilience, self-trust, and powerful boundaries."
+      >
+        <Sunrise slot="icon" className="w-6 h-6" />
+      </FeatureItem>
+      <FeatureItem
+        title="Fly"
+        description="You step fully into aligned leadership — in your life and your business."
+      >
+        <Plane slot="icon" className="w-6 h-6" />
+      </FeatureItem>
+    </FeaturesList>
+  </div>
+  <FAQ items={items} />
+  <CTA
+    title="Breakthrough Clarity Session"
+    description="Not sure where to begin? This 45-minute session helps you gain direction, insight, and immediate clarity. During this session, we will identify your biggest internal or business challenge, clarify what feels stuck, explore what support you truly need, determine if we are the right fit You’ll leave with insight — whether we work together or not."
+    primaryBtn={{
+      text: "Book Your Session",
+      href: "https://contactbelkis.as.me/TalkwithB",
+    }}
+    secondaryBtn={{
+      text: "Take the Assessment",
+      href: "https://belkisclarke.typeform.com/human-currency",
+    }}
+  />
+</Layout>

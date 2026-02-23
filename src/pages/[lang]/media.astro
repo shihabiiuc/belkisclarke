@@ -1,0 +1,60 @@
+---
+import Layout from "~/layouts/Layout.astro";
+
+import ProjectCard from "~/components/blog/ProjectCard.astro";
+import { getCollection } from "astro:content";
+
+import { languages } from "~/i18n/ui";
+import { useTranslations } from "~/i18n/utils";
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const t = useTranslations(lang);
+
+const projects = (
+  await getCollection("portfolio", ({ id }) => {
+    return id.startsWith(`${lang}/`);
+  })
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Layout
+  title="Media & Press | Belkis Clarke-Mitcham"
+  description="Check out all our latest media, articles, and press coverage."
+>
+  <div class="max-w-7xl mx-auto px-6 pt-32 pb-12">
+    <div class="mb-16">
+      <h1 class="text-4xl md:text-6xl font-display font-bold mb-6">
+        Media & Press
+      </h1>
+
+      <p class="text-xl text-muted-foreground max-w-2xl">
+        From TEDx stages to international podcasts, Belkis has captured global
+        attention by naming what others won’t say. Her media appearances span
+        television, radio, magazines, and digital platforms.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        projects.map((project) => {
+          const [_lang, ...rest] = project.id.split("/");
+          const slugWithoutLang = rest.join("/").replace(/\.[^/.]+$/, "");
+          return (
+            <ProjectCard
+              title={project.data.title}
+              description={project.data.description}
+              image={project.data.heroImage}
+              tags={project.data.tags}
+            />
+          );
+        })
+      }
+    </div>
+
+    <!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div> -->
+  </div>
+</Layout>
