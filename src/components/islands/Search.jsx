@@ -6,6 +6,7 @@ import {
   Zap,
   LayoutGrid,
   FileText,
+  Mic,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import DevSearchModal from "./DevSearchModal";
